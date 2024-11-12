@@ -78,10 +78,10 @@ python train.py --config configs/config_shapenet.yaml --normals True --random_no
 ---
 ## Generation
 
-### ShapeNet
+### ShapeNet (FOCUS ON THIS !!)
 
 ```bash
-python generate.py --config results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --gen_resolution_global 128
+python generate_inference.py --config results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --gen_resolution_global 128
 ```
 
 ### ABC, RealWorld, Famous and Thingi10k
