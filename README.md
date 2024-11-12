@@ -83,38 +83,6 @@ python train.py --config configs/config_shapenet.yaml --normals True --random_no
 ```bash
 python generate_inference.py --config results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --gen_resolution_global 128
 ```
-
-### ABC, RealWorld, Famous and Thingi10k
-
-```bash
-# Model trained with 3k points
-python generate.py --config results/ABC_3k_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --dataset_name DATASET_NAME --dataset_root data/DATASET_DIR --gen_resolution_global 256
-
-python generate.py --config results/ABC_3k_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --dataset_name DATASET_NAME --dataset_root data/DATASET_DIR --gen_resolution_global 256 --manifold_points -1 --gen_subsample_manifold 3000 --gen_subsample_manifold_iter 10 --gen_descriptor gen_sub3k_iter10
-
-# Model trained with 10k points
-python generate.py --config results/ABC_10k_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --dataset_name DATASET_NAME --dataset_root data/DATASET_DIR --gen_resolution_global 256
-
-python generate.py --config results/ABC_10k_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --dataset_name DATASET_NAME --dataset_root data/DATASET_DIR --gen_resolution_global 256 --manifold_points -1 --noise 0.0 --gen_subsample_manifold 10000 --gen_subsample_manifold_iter 10 --gen_descriptor gen_sub3k_iter10
-```
-
-For faster generation, one would want to use a lower marching cubes parameter `--gen_resolution_global`, e.g. 128.
-
-`DATASET_NAME` should be replaced by `ABCTest`, `ABCTestNoiseFree`, `ABCTestExtraNoise`, `RealWorld`, `FamousTest`, `FamousTestNoiseFree`, `FamousTestExtraNoisy`, `FamousTestSparse`, `FamousTestDense`, `Thingi10kTest`, `Thingi10kTestNoiseFree`, `Thingi10kTestExtraNoisy`, `Thingi10kTestSparse`, `Thingi10kTestDense`
-
-`DATASET_DIR` should be replaced by `3d_shapes_abc`, `3d_shapes_famous`, `3d_shapes_real_world`, `3d_shapes_thingi10k`
-
-### SceneNet
-
-```
-python generate.py --config results/ShapeNet_Normals_FKAConv_InterpAttentionKHeadsNet_None/config.yaml --gen_autoscale True --gen_autoscale_target 0.01 --gen_resolution_metric 0.01 --dataset_name DATASET_NAME --dataset_root data/DATASET_NAME --manifold_points -1
-```
-
-`DATASET_NAME` should be replaced by `SceneNet20`, `SceneNet100`, `SceneNet500`, `SceneNet1000`.
-
-The `--gen_autoscale_target` parameter is the average distance between a point and its nearest neighbor in the training set, 0.01 for ShapeNet train set with 3000 points.
-
----
 ## Evaluation
 
 ### ShapeNet
