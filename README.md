@@ -39,7 +39,7 @@ Computer Vision and Pattern Recognition, CVPR, 2022
 The code was used with Ubuntu, Python 3.7.10, Cuda 11.1 and Pytorch 1.8.1
 
 Run the following command.   
-**Note** - The following script will require a reboot. Make sure to complete the remaining commands after rebooting.
+**Note** - The following script will require a reboot. Make sure to complete the remaining commands after rebooting. You will need to reconnect to AWS/GCP is youre using one.
 ```
 bash install.sh
 ```
@@ -62,7 +62,9 @@ Run the following script to setup the data required for training.
 ```
 bash datasetup.sh
 ```
+Your data should be saved in a directory named `/data/ShapeNet/`
 
+Note : It takes time to unzip the load of data! 
 ---
 ## Training
 
