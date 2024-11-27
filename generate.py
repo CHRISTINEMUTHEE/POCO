@@ -23,6 +23,7 @@ from lightconvpoint.utils.misc import dict_to_device
 import networks
 import datasets
 import utils.argparseFromFile as argparse
+from utils import *
 
 def export_mesh_and_refine_vertices_region_growing_v2(
     network,latent,
@@ -289,6 +290,17 @@ def count_parameters(model):
 def main(config):    
     
     config = eval(str(config))  
+
+    # Entropy and density parameters
+    density_radius = config.get("density_radius", 0.1)
+    entropy_radius = config.get("entropy_radius", 0.1)
+    density_threshold = config.get("density_threshold", None)
+    entropy_threshold = config.get("entropy_threshold", None)
+    enable_density = config.get("enable_density", False)
+    enable_entropy = config.get("enable_entropy", False)
+
+    logging.info(f"Enable Density: {enable_density}, Enable Entropy: {enable_entropy}")
+
     logging.getLogger().setLevel(config["logging"])
     disable_log = (config["log_mode"] != "interactive")
     device = torch.device(config["device"])
@@ -359,6 +371,40 @@ def main(config):
         shuffle=False,
         num_workers=0,
     )
+
+    # Density and Entropy Calculation
+    if enable_density or enable_entropy:
+        logging.info("Computing density and entropy...")
+        for data in tqdm(gen_loader, ncols=100):
+            points = data["pos"][0].numpy().T  # Assuming (N, 3) point cloud
+            features = data["x"][0].numpy().T  # Assuming (N, F) features
+
+            if enable_density:
+                densities = compute_density(points, radius=density_radius)
+                data["density"] = densities
+
+            if enable_entropy:
+                entropies = compute_entropy(points, features, radius=entropy_radius)
+                data["entropy"] = entropies
+
+            # Apply thresholding if needed
+            if density_threshold:
+                valid_points = densities >= density_threshold
+                points = points[valid_points]
+                if enable_entropy:
+                    entropies = entropies[valid_points]
+
+            if entropy_threshold:
+                valid_points = entropies <= entropy_threshold
+                points = points[valid_points]
+                if enable_density:
+                    densities = densities[valid_points]
+
+            data["pos"][0] = torch.tensor(points.T, device=device)
+            if enable_density:
+                data["density"] = torch.tensor(densities, device=device)
+            if enable_entropy:
+                data["entropy"] = torch.tensor(entropies, device=device)
 
     
     with torch.no_grad():
