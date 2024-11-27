@@ -4,3 +4,7 @@ data
 results
 *.so
 cuda-repo-ubuntu2004-11-8-local_11.8.0-520.61.05-1_amd64.deb
+
+Miniconda3-latest-Linux-x86_64.sh
+occupancy_networks
+results.tar

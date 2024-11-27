@@ -45,7 +45,9 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
         if pos_non_manifold.shape[1] != 3:
             pos_non_manifold = pos_non_manifold.transpose(1,2)
 
+        ############################
         indices = knn(pos, pos_non_manifold, self.k)
+        ############################
 
         if add_batch_dimension_non_manifold or add_batch_dimension_pos:
             indices = indices.squeeze(0)

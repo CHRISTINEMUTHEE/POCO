@@ -224,51 +224,51 @@ def main(config):
                                             batch_size=1, 
                                             shuffle=False, 
                                             num_workers=0)
-    # Density and Entropy Calculation
-    # Density and Entropy Calculation
-    if enable_density or enable_entropy:
-        logging.info("Computing density and entropy...")
-        for data in tqdm(gen_loader, ncols=100):
-            points = data["pos"][0].numpy().T  # Assuming (N, 3) point cloud
-            logging.info(f"\nThe number of point clouds from data : {len(points)} \n")
-            features = data["x"][0].numpy().T  # Assuming (N, F) features
+    # # Density and Entropy Calculation
+    # # Density and Entropy Calculation
+    # if enable_density or enable_entropy:
+    #     logging.info("Computing density and entropy...")
+    #     for data in tqdm(gen_loader, ncols=100):
+    #         points = data["pos"][0].numpy().T  # Assuming (N, 3) point cloud
+    #         logging.info(f"\nThe number of point clouds from data : {len(points)} \n")
+    #         features = data["x"][0].numpy().T  # Assuming (N, F) features
             
-            if enable_density:
-                densities = compute_density(points, radius=density_radius)
-                data["density"] = densities
-            logging.info(f"Density stats - min: {densities.min()}, max: {densities.max()}, mean: {densities.mean()}, median: {np.median(densities)}")
-            if enable_entropy:
-                entropies = compute_entropy(points, features, radius=entropy_radius)
-                data["entropy"] = entropies
-            logging.info(f"Entropy stats - min: {entropies.min()}, max: {entropies.max()}, mean: {entropies.mean()}, median: {np.median(entropies)}")
+    #         if enable_density:
+    #             densities = compute_density(points, radius=density_radius)
+    #             data["density"] = densities
+    #         logging.info(f"Density stats - min: {densities.min()}, max: {densities.max()}, mean: {densities.mean()}, median: {np.median(densities)}")
+    #         if enable_entropy:
+    #             entropies = compute_entropy(points, features, radius=entropy_radius)
+    #             data["entropy"] = entropies
+    #         logging.info(f"Entropy stats - min: {entropies.min()}, max: {entropies.max()}, mean: {entropies.mean()}, median: {np.median(entropies)}")
 
-            # Apply thresholding if needed
-            if density_threshold: 
-                valid_points = densities >= densities.mean()
-                logging.info(f"Points passing density threshold: {valid_points.sum()} out of {densities.size}")
-                points = points[valid_points]
-                if enable_density:
-                    densities = densities[valid_points]
-            logging.info(f"Valid points after density filtering: {points.shape[0]}")
+    #         # Apply thresholding if needed
+    #         if density_threshold: 
+    #             valid_points = densities >= densities.mean()
+    #             logging.info(f"Points passing density threshold: {valid_points.sum()} out of {densities.size}")
+    #             points = points[valid_points]
+    #             if enable_density:
+    #                 densities = densities[valid_points]
+    #         logging.info(f"Valid points after density filtering: {points.shape[0]}")
 
-            if entropy_threshold:
-                valid_points = entropies >= entropies.mean()
-                logging.info(f"Points passing entropy threshold: {valid_points.sum()} out of {entropies.size}")
-                points = points[valid_points]
-                if enable_entropy:
-                    entropies = entropies[valid_points]
-            logging.info(f"Valid points after entropy filtering: {points.shape[0]}")
+    #         if entropy_threshold:
+    #             valid_points = entropies >= entropies.mean()
+    #             logging.info(f"Points passing entropy threshold: {valid_points.sum()} out of {entropies.size}")
+    #             points = points[valid_points]
+    #             if enable_entropy:
+    #                 entropies = entropies[valid_points]
+    #         logging.info(f"Valid points after entropy filtering: {points.shape[0]}")
 
-            if points.size == 0:
-                logging.warning("No valid points remaining after filtering. Skipping sample.")
-                continue
+    #         if points.size == 0:
+    #             logging.warning("No valid points remaining after filtering. Skipping sample.")
+    #             continue
 
-            data["pos"][0] = torch.tensor(points.T, device=device)
-            if enable_density:
-                data["density"] = torch.tensor(densities, device=device)
-            if enable_entropy:
-                data["entropy"] = torch.tensor(entropies, device=device)
-            
+    #         data["pos"][0] = torch.tensor(points.T, device=device)
+    #         if enable_density:
+    #             data["density"] = torch.tensor(densities, device=device)
+    #         if enable_entropy:
+    #             data["entropy"] = torch.tensor(entropies, device=device)
+
 
     with torch.no_grad():
         gen_dir = f"gen_{config['dataset_name']}_{config['test_split']}_{config['manifold_points']}"
@@ -278,6 +278,22 @@ def main(config):
         sample_count = 0
 
         for data in tqdm(gen_loader, ncols=100):
+
+            ################### EDITED ###################
+
+            print(f"Data keys: {data.keys()}")
+            print(f"Data pos shape: {data['pos'][0].shape}")
+
+            adaptive_scores, densities, entropies = compute_adaptive_score(
+                points=data["pos"][0].numpy().T,
+                features=data["x"][0].numpy().T,
+                k=10,
+                alpha=0.5,
+                beta=0.5
+            )
+
+            ################### EDITED ###################
+
             if sample_count >= 100:
                 break
             sample_start_time = time.perf_counter()
