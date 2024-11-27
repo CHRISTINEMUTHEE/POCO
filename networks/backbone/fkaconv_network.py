@@ -91,6 +91,9 @@ class FKAConvNetwork(torch.nn.Module):
 
     def forward_spatial(self, data):
 
+
+
+
         pos = data["pos"].clone()
 
         add_batch_dimension = False
@@ -175,13 +178,24 @@ class FKAConvNetwork(torch.nn.Module):
 
 
     def forward(self, data, spatial_only=False, spectral_only=False, cat_in_last_layer=None):
+        # print(data.keys())
+
+        # print("x", data['x'].shape, "pos_non_manifold", data['pos_non_manifold'].shape,'pos',data['pos'].shape, 'occupancies', data["occupancies"].shape, "shape_id", data["shape_id"]  )
+      
+        # print(data["pos"])
+        # print(data["x"])
+        # print("spectral_only",spectral_only,"spatial_only", spatial_only )
 
 
+
+        ## called only in dataset class
         if spatial_only:
-            return self.forward_spatial(data)
+            out =self.forward_spatial(data)
+
+            return out
+        
 
         if not spectral_only:
-
             spatial_data = self.forward_spatial(data)
             for key, value in spatial_data.items():
                 data[key] = value
@@ -229,5 +243,6 @@ class FKAConvNetwork(torch.nn.Module):
             xout = self.dropout(xout)
             xout = self.fcout(xout)
             xout = xout.mean(dim=2)
-
+        # print("out shape", xout.shape)
         return xout
+    

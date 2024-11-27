@@ -67,6 +67,8 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
 
         
         x = data["latents"]
+
+        print("latent inside", x.shape)
         indices = data["proj_indices"]
         pos = data["pos"]
         pos_non_manifold = data["pos_non_manifold"]
@@ -83,7 +85,10 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
         pos = pos_non_manifold.unsqueeze(3) - pos
 
         x = torch.cat([x,pos], dim=1)
+       
         x = self.activation(self.fc1(x))
+  
+
         x = self.activation(self.fc2(x))
         x = self.activation(self.fc3(x))
 

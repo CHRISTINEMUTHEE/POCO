@@ -17,7 +17,7 @@ training_random_scale: null # 0.1
 training_random_rotation_x: null # 180
 training_random_rotation_y: null # 180
 training_random_rotation_z: null # 180
-training_batch_size: 16
+training_batch_size: 4
 training_iter_nbr: 100000
 training_lr_start: 0.001
 
@@ -30,7 +30,7 @@ network_decoder_k: 64
 network_n_labels: 2
 
 device: "cuda" 
-threads: 8
+threads: 4
 log_mode: "no_log"
 logging: INFO
 

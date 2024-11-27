@@ -7,16 +7,128 @@ from lightconvpoint.spatial import knn, sampling_quantized as sampling
 from lightconvpoint.utils.functional import batch_gather
 from lightconvpoint.nn import max_pool, interpolate
 
+from torch_geometric.loader import DataLoader
+from torch_geometric.data import Batch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch_geometric.nn import GATConv
+from torch_geometric.utils import dense_to_sparse, to_dense_adj
+from torch_geometric.data import Data as gData
+
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+class GATOccupancyPredictor(nn.Module):
+    def __init__(self, in_channels, hidden_channels, num_heads=4, out_channels=2):
+        """
+        Initialize the GAT-based occupancy predictor.
+        :param in_channels: Number of input features per node.
+        :param hidden_channels: Number of hidden units for GATConv.
+        :param num_heads: Number of attention heads in GATConv.
+        :param out_channels: Number of output features per node (default: 2 for occupancy classification).
+        """
+        super().__init__()
+        self.gat1 = GATConv(in_channels, hidden_channels, heads=num_heads, concat=True)
+        self.gat2 = GATConv(hidden_channels * num_heads, hidden_channels, heads=num_heads, concat=True)
+        self.fc = nn.Linear(hidden_channels * num_heads, out_channels)
+        self.out_channels = out_channels
+
+    def forward(self, data, spatial_only=False, spectral_only=False):
+        if spatial_only:
+            return data
+        pos = data["pos"]
+        pos_non_manifold = data["pos_non_manifold"]
+
+        """
+        Forward pass for the GAT-based model.
+        :param pos: Tensor of surface points [N, 3].
+        :param pos_non_manifold: Tensor of points in bounding volume [M, 3].
+        :param batch: Batch information for graph processing.
+        :return: Occupancy predictions of shape [Batch size, 2, M].
+        """
+
+        # Combine surface points and bounding volume points
+        all_points = torch.cat([pos, pos_non_manifold], dim=2)
+        all_points = all_points.transpose(1,2)
+
+        batch_size, num_nodes, fc_dim = all_points.shape
+                # Compute adjacency matrix (dense to sparse format for PyG)
+        dist_matrix = torch.cdist(all_points, all_points)  # Pairwise Euclidean distances
+        # print(dist_matrix.mean(dim=1), dist_matrix.max())
+        adjacency_matrix = ( dist_matrix < 0.05)# Threshold-based connectivity
+
+        batch_adj = torch.block_diag(*[adj for adj in adjacency_matrix])
+        # Flatten node features into a single tensor
+        batch_nodes = all_points.reshape(-1, fc_dim)  # Shape: (batch_size * num_nodes, fc_dim)
+
+        # Create a batch index tensor mapping nodes to their respective graphs
+        batch_vector = torch.repeat_interleave(torch.arange(batch_size), num_nodes)
+
+        # Create PyTorch Geometric Data
+        data = Data(x=batch_nodes, edge_index=batch_adj.nonzero(as_tuple=False).T, batch=batch_vector)
+
+        # Output for verification
+        # print("Node Features Shape:", data.x.shape)       # (batch_size * num_nodes, fc_dim)
+        # print("Edge Index Shape:", data.edge_index.shape) # (2, num_edges)
+        # print("Batch Shape:", data.batch.shape)           # (batch_size * num_nodes,)
+
+        x = F.relu(self.gat1(data.x, data.edge_index))
+        x = F.relu(self.gat2(x, data.edge_index))
+        x = self.fc(x)
+        x =  x.view(batch_size, num_nodes, self.out_channels)
+        # print("out shape",x.shape)
+
+
+
+
+        # adjacency_matrix = dist_matrix
+        del dist_matrix
+        edge_index, edge_attr = dense_to_sparse(adjacency_matrix)
+        # print("adjacency_matrix",adjacency_matrix.shape)
+        # edge_index = adjacency_matrix.nonzero().t().contiguous()
+        # edge_index_list = self.build_edge_index(batch_size, num_nodes)
+        # all_points = self.build_graph_batch(all_points, edge_index)
+# 
+        # print("all_points.x", all_points.shape, edge_index.shape)
+
+        # GAT layers
+        # x = F.relu(self.gat1(all_points[0], edge_index))
+        # x = F.relu(self.gat2(x, edge_index))
+        # x = self.fc(x)
+
+
+        # Extract outputs for non-manifold points (M points)
+        # batch_size = batch.max().item() + 1
+        batch_size= pos.shape[0]
+        num_points = pos_non_manifold.size(2)
+      
+        # occupancy_logits = x[-num_points:].reshape(batch_size, self.out_channels, num_points)  # [Batch size,out_channels, M]
+        # occupancy_logits = x[num_points:].reshape(batch_size, self.out_channels, 3000)  # [Batch size,out_channels, M]
+        
+        occupancy_logits = x[:,num_points:].reshape(batch_size, self.out_channels, 3000)  # [Batch size,out_channels, M]
+
+        return occupancy_logits
+    
+    # def build_graph_batch(self, x_list,  edge_index_list):
+    #     data_list = []
+    #     for graph_nodes, ei in zip(x_list, edge_index_list):
+    #         data_list.append(gData(x=graph_nodes, edge_index=ei))
+    #     graph = Batch.from_data_list(data_list)
+    #     return graph
+    # def build_edge_index(self,  batch_size, num_nodes):
+    #     row = torch.arange(num_nodes).view(-1, 1).repeat(1, num_nodes).view(-1)
+    #     col = torch.arange(num_nodes).view(-1, 1).repeat(num_nodes, 1).view(-1)
+    #     edge_index = torch.stack([row, col], dim=0)
+    #     edge_index_list = [edge_index for _ in range(batch_size)]
+    #     return edge_index_list
 
 class Network(torch.nn.Module):
 
     def __init__(self, in_channels, latent_size, out_channels, backbone, decoder, **kwargs):
         super().__init__()
 
-        self.net = eval(backbone)(in_channels, latent_size, segmentation=True, dropout=0)
+        # self.net = eval(backbone)(in_channels, latent_size, segmentation=True, dropout=0)
+        self.net = GATOccupancyPredictor(3, latent_size, num_heads=4, out_channels=latent_size)
         self.projection = eval(decoder["name"])(latent_size, out_channels, decoder["k"])
         self.lcp_preprocess = True
 
@@ -43,6 +155,7 @@ class Network(torch.nn.Module):
                 data[key] = value
 
         latents = self.net(data, spectral_only=True)
+        print("latents", latents.shape)
         data["latents"] = latents
         ret_data = self.projection(data, spectral_only=True)
 

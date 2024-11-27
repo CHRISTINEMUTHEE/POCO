@@ -49,7 +49,7 @@ def get_dataset(base_class):
             data = super().__getitem__(idx)
 
             if (self.net is not None) and ("lcp_preprocess" in self.net.__dict__) and (self.net.__dict__["lcp_preprocess"]):
-
+                
                 with torch.no_grad():
                     return_data = self.net(data, spatial_only=True)
 

@@ -61,7 +61,6 @@ def main(config):
     net = network_function()
     net.to(device)
     logging.info(f"Network -- Number of parameters {count_parameters(net)}")
-    
     logging.info("Getting the dataset")
     DatasetClass = get_dataset(eval("datasets."+config["dataset_name"]))
     train_transform = []
@@ -126,8 +125,7 @@ def main(config):
                 num_non_manifold_points=config["non_manifold_points"],
                 dataset_size=config["val_num_mesh"]
                 )
-
-
+   
     # build the data loaders
     train_loader = torch.utils.data.DataLoader(
             train_dataset,
@@ -184,16 +182,22 @@ def main(config):
             train_loader,
             desc="Epoch " + str(epoch),
             ncols=130,
-            disable=disable_log,
+            # disable=disable_log,
         )
-        for data in t:
+        dict_vals = {"Epoch": [],"OA" : [], "AA":[], "IoU": [], "Loss": []}
+        # print("starting epoch")
+        # print("creating batch now 16x")
 
+        for data in t:
+            
             data = dict_to_device(data, device)
             optimizer.zero_grad()
 
             outputs = net(data, spectral_only=True)
+           
             occupancies = data["occupancies"]
 
+            
             loss = loss_layer(outputs, occupancies)
             loss.backward()
             optimizer.step()
@@ -212,8 +216,14 @@ def main(config):
             train_aa = metrics.stats_accuracy_per_class(cm)[0]
             train_iou = metrics.stats_iou_per_class(cm)[0]
             train_aloss = error / cm.sum()
-
             description = f"Epoch {epoch} | OA {train_oa*100:.2f} | AA {train_aa*100:.2f} | IoU {train_iou*100:.2f} | Loss {train_aloss:.4e}"
+            dict_vals["Epoch"].append(epoch)
+            dict_vals["AA"].append(train_aa)
+            dict_vals["IoU"].append(train_iou)
+            dict_vals["Loss"].append(train_aloss)
+
+   
+            # print(description)
             t.set_description_str(wblue(description))
 
             train_iter_count += 1
@@ -221,7 +231,8 @@ def main(config):
             if train_iter_count >= config["training_iter_nbr"]:
                 break
 
-
+            
+         
         # save the logs
         train_log_data = {
             "OA_train": train_oa,
