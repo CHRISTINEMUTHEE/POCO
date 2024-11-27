@@ -22,6 +22,7 @@ from lightconvpoint.utils.misc import dict_to_device
 import networks
 import datasets
 import utils.argparseFromFile as argparse
+from dynamic_inference import *
 
 def export_mesh_and_refine_vertices_region_growing_v2(
     network, latent,
@@ -156,7 +157,18 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 def main(config):    
-    config = eval(str(config))  
+    config = eval(str(config))
+    
+        # Entropy and density parameters
+    density_radius = config.get("density_radius", 0.1)
+    entropy_radius = config.get("entropy_radius", 0.1)
+    density_threshold = config.get("density_threshold", None)
+    entropy_threshold = config.get("entropy_threshold", None)
+    enable_density = config.get("enable_density", False)
+    enable_entropy = config.get("enable_entropy", False)
+
+    logging.info(f"Enable Density: {enable_density}, Enable Entropy: {enable_entropy}")
+    
     logging.getLogger().setLevel(config["logging"])
     device = torch.device(config["device"])
     if config["device"] == "cuda":
@@ -191,15 +203,72 @@ def main(config):
 
     if config["manifold_points"] is not None and config["manifold_points"] > 0:
         test_transform.insert(0, lcp_T.FixedPoints(config["manifold_points"], item_list=["x", "pos", "normal", "y", "y_object"]))
+        # Add noise to data
     if config["random_noise"] is not None and config["random_noise"] > 0:
         test_transform.insert(0, lcp_T.RandomNoiseNormal(sigma=config["random_noise"]))
+        
     if config["normals"]:
         test_transform.insert(0, lcp_T.FieldAsFeatures(["normal"]))
 
     test_transform = T.Compose(test_transform)
-    gen_dataset = DatasetClass(config["dataset_root"], split=config["test_split"], transform=test_transform, network_function=network_function, filter_name=config["filter_name"], num_non_manifold_points=config["non_manifold_points"], dataset_size=config["num_mesh"])
+    gen_dataset = DatasetClass(config["dataset_root"], 
+                               split=config["test_split"], 
+                               transform=test_transform, 
+                               network_function=network_function, 
+                               filter_name=config["filter_name"], 
+                               num_non_manifold_points=config["non_manifold_points"], 
+                               dataset_size=config["num_mesh"])
 
-    gen_loader = torch.utils.data.DataLoader(gen_dataset, batch_size=1, shuffle=False, num_workers=0)
+    gen_loader = torch.utils.data.DataLoader(
+                                            gen_dataset, 
+                                            batch_size=1, 
+                                            shuffle=False, 
+                                            num_workers=0)
+    # Density and Entropy Calculation
+    # Density and Entropy Calculation
+    if enable_density or enable_entropy:
+        logging.info("Computing density and entropy...")
+        for data in tqdm(gen_loader, ncols=100):
+            points = data["pos"][0].numpy().T  # Assuming (N, 3) point cloud
+            logging.info(f"\nThe number of point clouds from data : {len(points)} \n")
+            features = data["x"][0].numpy().T  # Assuming (N, F) features
+            
+            if enable_density:
+                densities = compute_density(points, radius=density_radius)
+                data["density"] = densities
+            logging.info(f"Density stats - min: {densities.min()}, max: {densities.max()}, mean: {densities.mean()}, median: {np.median(densities)}")
+            if enable_entropy:
+                entropies = compute_entropy(points, features, radius=entropy_radius)
+                data["entropy"] = entropies
+            logging.info(f"Entropy stats - min: {entropies.min()}, max: {entropies.max()}, mean: {entropies.mean()}, median: {np.median(entropies)}")
+
+            # Apply thresholding if needed
+            if density_threshold: 
+                valid_points = densities >= densities.mean()
+                logging.info(f"Points passing density threshold: {valid_points.sum()} out of {densities.size}")
+                points = points[valid_points]
+                if enable_density:
+                    densities = densities[valid_points]
+            logging.info(f"Valid points after density filtering: {points.shape[0]}")
+
+            if entropy_threshold:
+                valid_points = entropies >= entropies.mean()
+                logging.info(f"Points passing entropy threshold: {valid_points.sum()} out of {entropies.size}")
+                points = points[valid_points]
+                if enable_entropy:
+                    entropies = entropies[valid_points]
+            logging.info(f"Valid points after entropy filtering: {points.shape[0]}")
+
+            if points.size == 0:
+                logging.warning("No valid points remaining after filtering. Skipping sample.")
+                continue
+
+            data["pos"][0] = torch.tensor(points.T, device=device)
+            if enable_density:
+                data["density"] = torch.tensor(densities, device=device)
+            if enable_entropy:
+                data["entropy"] = torch.tensor(entropies, device=device)
+            
 
     with torch.no_grad():
         gen_dir = f"gen_{config['dataset_name']}_{config['test_split']}_{config['manifold_points']}"
