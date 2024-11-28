@@ -224,50 +224,6 @@ def main(config):
                                             batch_size=1, 
                                             shuffle=False, 
                                             num_workers=0)
-    # # Density and Entropy Calculation
-    # # Density and Entropy Calculation
-    # if enable_density or enable_entropy:
-    #     logging.info("Computing density and entropy...")
-    #     for data in tqdm(gen_loader, ncols=100):
-    #         points = data["pos"][0].numpy().T  # Assuming (N, 3) point cloud
-    #         logging.info(f"\nThe number of point clouds from data : {len(points)} \n")
-    #         features = data["x"][0].numpy().T  # Assuming (N, F) features
-            
-    #         if enable_density:
-    #             densities = compute_density(points, radius=density_radius)
-    #             data["density"] = densities
-    #         logging.info(f"Density stats - min: {densities.min()}, max: {densities.max()}, mean: {densities.mean()}, median: {np.median(densities)}")
-    #         if enable_entropy:
-    #             entropies = compute_entropy(points, features, radius=entropy_radius)
-    #             data["entropy"] = entropies
-    #         logging.info(f"Entropy stats - min: {entropies.min()}, max: {entropies.max()}, mean: {entropies.mean()}, median: {np.median(entropies)}")
-
-    #         # Apply thresholding if needed
-    #         if density_threshold: 
-    #             valid_points = densities >= densities.mean()
-    #             logging.info(f"Points passing density threshold: {valid_points.sum()} out of {densities.size}")
-    #             points = points[valid_points]
-    #             if enable_density:
-    #                 densities = densities[valid_points]
-    #         logging.info(f"Valid points after density filtering: {points.shape[0]}")
-
-    #         if entropy_threshold:
-    #             valid_points = entropies >= entropies.mean()
-    #             logging.info(f"Points passing entropy threshold: {valid_points.sum()} out of {entropies.size}")
-    #             points = points[valid_points]
-    #             if enable_entropy:
-    #                 entropies = entropies[valid_points]
-    #         logging.info(f"Valid points after entropy filtering: {points.shape[0]}")
-
-    #         if points.size == 0:
-    #             logging.warning("No valid points remaining after filtering. Skipping sample.")
-    #             continue
-
-    #         data["pos"][0] = torch.tensor(points.T, device=device)
-    #         if enable_density:
-    #             data["density"] = torch.tensor(densities, device=device)
-    #         if enable_entropy:
-    #             data["entropy"] = torch.tensor(entropies, device=device)
 
 
     with torch.no_grad():
@@ -281,16 +237,21 @@ def main(config):
 
             ################### EDITED ###################
 
-            print(f"Data keys: {data.keys()}")
-            print(f"Data pos shape: {data['pos'][0].shape}")
+            # print(f"Data length: {len(data['pos'])}")
+            # print(f"Data keys: {data.keys()}")
+            # print(f"Data pos shape: {data['pos'][0].shape}")
 
-            adaptive_scores, densities, entropies = compute_adaptive_score(
+            adaptive_scores = compute_adaptive_score(
                 points=data["pos"][0].numpy().T,
-                features=data["x"][0].numpy().T,
                 k=10,
                 alpha=0.5,
                 beta=0.5
             )
+
+            data["adaptive_scores"] = torch.tensor(adaptive_scores)
+
+            print(f"Adaptive scores: {adaptive_scores}")
+            print(f"Adaptive scores shape: {adaptive_scores.shape}")
 
             ################### EDITED ###################
 
@@ -318,6 +279,12 @@ def main(config):
 
             pts = data["pos"][0].transpose(1, 0).cpu().numpy()
             nls = data["x"][0].transpose(1, 0).cpu().numpy()
+
+            print(f"Points shape: {pts.shape}")
+            print(f"Points: {pts}")
+            print(f"Normals shape: {nls.shape}")
+            print(f"Normals: {nls}")
+            
             np.savetxt(os.path.join(savedir_points, object_name + ".xyz"), np.concatenate([pts, nls], axis=1).astype(np.float16))
 
             latent = net.get_latent(data, with_correction=False)
@@ -403,5 +370,7 @@ if __name__ == "__main__":
         config["threads"] = 0
     
     config["save_dir"] = os.path.dirname(config["config"])
+
+    print(f"NUM MESH: {config['num_mesh']}")
 
     main(config)

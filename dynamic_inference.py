@@ -37,42 +37,50 @@ def compute_density(points, k):
         densities.append(density)
     return np.array(densities)
 
-
-def compute_entropy(points, features, k):
+def compute_entropy(points, k):
     """
     Compute entropy for each point based on feature distributions in its neighborhood.
     """
+
     tree = KDTree(points)
     entropies = []
 
     for point in points:
-        _, neighbors = tree.query(point, k=k)
-        neighbor_features = features[neighbors]
-        probabilities = np.mean(neighbor_features, axis=0)
-        probabilities = probabilities / (np.sum(probabilities) + 1e-8)  # Normalize
+        distances, _ = tree.query(point, k=k)
+        # print("Negative distances:", np.where(distances < 0))
+        probabilities = distances / (np.sum(distances) + 1e-8)  # Normalize
         entropy = -np.sum(probabilities * np.log(probabilities + 1e-8))
         entropies.append(entropy)
-
+    # print("Negative entropies:", np.where(np.array(entropies) < 0))
     return np.array(entropies)
+
 
 def normalize_values(values):
     """
     Normalize values to the range [0, 1].
     """
-    return (values - np.min(values)) / (np.max(values) - np.min(values) + 1e-8)
+    min_value = np.min(values)
+    max_value = np.max(values)
+    normalized_values = (values - min_value) / (max_value - min_value + 1e-8)
 
-def compute_adaptive_score(points, features, k, alpha=0.5, beta=0.5):
+    return normalized_values
+
+def compute_adaptive_score(points, k, alpha=0.5, beta=0.5):
     """
     Compute adaptive scores for a point cloud based on density and entropy.
     """
     densities = compute_density(points, k)
-    entropies = compute_entropy(points, features, k)
+    entropies = compute_entropy(points, k)
     
     # Normalize densities and entropies
     normalized_densities = normalize_values(densities)
     normalized_entropies = normalize_values(entropies)
+
+    # print("normalized densities:", normalized_densities)
+    # print("normalized entropies:", normalized_entropies)
     
     # Compute adaptive score
     adaptive_scores = alpha * normalized_densities + beta * normalized_entropies
-    return adaptive_scores, densities, entropies
+
+    return adaptive_scores
 
