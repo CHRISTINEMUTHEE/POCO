@@ -241,17 +241,17 @@ def main(config):
             # print(f"Data keys: {data.keys()}")
             # print(f"Data pos shape: {data['pos'][0].shape}")
 
-            adaptive_scores = compute_adaptive_score(
-                points=data["pos"][0].numpy().T,
-                k=10,
-                alpha=0.5,
-                beta=0.5
-            )
+            # adaptive_scores = compute_adaptive_score(
+            #     points=data["pos"][0].numpy().T,
+            #     k=10,
+            #     alpha=0.5,
+            #     beta=0.5
+            # )
 
-            data["adaptive_scores"] = torch.tensor(adaptive_scores)
+            # data["adaptive_scores"] = torch.tensor(adaptive_scores)
 
-            print(f"Adaptive scores: {adaptive_scores}")
-            print(f"Adaptive scores shape: {adaptive_scores.shape}")
+            # print(f"Adaptive scores: {adaptive_scores}")
+            # print(f"Adaptive scores shape: {adaptive_scores.shape}")
 
             ################### EDITED ###################
 
@@ -280,10 +280,10 @@ def main(config):
             pts = data["pos"][0].transpose(1, 0).cpu().numpy()
             nls = data["x"][0].transpose(1, 0).cpu().numpy()
 
-            print(f"Points shape: {pts.shape}")
-            print(f"Points: {pts}")
-            print(f"Normals shape: {nls.shape}")
-            print(f"Normals: {nls}")
+            # print(f"Points shape: {pts.shape}")
+            # print(f"Points: {pts}")
+            # print(f"Normals shape: {nls.shape}")
+            # print(f"Normals: {nls}")
             
             np.savetxt(os.path.join(savedir_points, object_name + ".xyz"), np.concatenate([pts, nls], axis=1).astype(np.float16))
 

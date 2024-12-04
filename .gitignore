@@ -10,3 +10,4 @@ occupancy_networks
 results.tar
 
 adaptive_scores.json
+adaptive_scores_mean.json

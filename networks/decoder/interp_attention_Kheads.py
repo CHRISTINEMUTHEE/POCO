@@ -45,6 +45,8 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
         if pos_non_manifold.shape[1] != 3:
             pos_non_manifold = pos_non_manifold.transpose(1,2)
 
+        print("pos shape: ", pos.shape)
+
         ############################
         indices = knn(pos, pos_non_manifold, self.k)
         ############################
@@ -55,6 +57,10 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
         ret_data = {}
         ret_data["proj_indices"] = indices
 
+        # print("k value: ", self.k)
+        # print("data proj shape: ", ret_data["proj_indices"].shape)
+        # print("data proj indices: ", ret_data["proj_indices"])
+
         return ret_data
 
 
@@ -64,6 +70,13 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
 
         if not spectral_only:
             spatial_data = self.forward_spatial(data)
+
+            # print()
+            # print("*********************************************************")
+            # print("Spatial data: ", spatial_data)
+            # print("*********************************************************")
+            # print()
+
             for key, value in spatial_data.items():
                 data[key] = value
 

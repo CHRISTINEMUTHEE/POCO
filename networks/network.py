@@ -53,6 +53,9 @@ class Network(torch.nn.Module):
     def get_latent(self, data, with_correction=False, spatial_only=False, spectral_only=False):
 
         latents = self.net(data, spatial_only=spatial_only, spectral_only=spectral_only)
+
+        # print("latents", latents.shape)
+
         data["latents"] = latents
 
         data["proj_correction"] = None
