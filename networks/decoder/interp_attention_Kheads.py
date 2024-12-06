@@ -68,7 +68,7 @@ class InterpAttentionKHeadsNet(torch.nn.Module):
         
         x = data["latents"]
 
-        print("latent inside", x.shape)
+        # print("latent inside", x.shape)
         indices = data["proj_indices"]
         pos = data["pos"]
         pos_non_manifold = data["pos_non_manifold"]

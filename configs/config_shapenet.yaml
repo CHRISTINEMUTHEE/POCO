@@ -1,9 +1,10 @@
 dataset_name: ShapeNet
-# dataset_root: data/ShapeNet
-dataset_root: /home/ubuntu/POCO/occupancy_networks/data/ShapeNet
+dataset_root: data/ShapeNet
+# dataset_root: /home/ubuntu/POCO/occupancy_networks/data/ShapeNet
 manifold_points: 3000
 non_manifold_points: 2048
 random_noise: 0.005
 
-iter_nbr: 600000
+# iter_nbr: 600000
+iter_nbr: 90000000
 num_samples: 30
