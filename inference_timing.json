@@ -1,0 +1,807 @@
+{
+    "timing_data": [
+        {
+            "sample_index": 1,
+            "shape_id": 0,
+            "sample_time": 3.045982455001649,
+            "inference_time": 0.44016072699741926,
+            "mesh_generation_time": 2.602520738997555,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d18592d9615b01bbbc0909d98a1ff2b4.ply"
+        },
+        {
+            "sample_index": 2,
+            "shape_id": 1,
+            "sample_time": 2.241467873998772,
+            "inference_time": 0.06282820100022946,
+            "mesh_generation_time": 2.176157655998395,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d18f2aeae4146464bd46d022fd7d80aa.ply"
+        },
+        {
+            "sample_index": 3,
+            "shape_id": 2,
+            "sample_time": 2.4089647749970027,
+            "inference_time": 0.058096120999834966,
+            "mesh_generation_time": 2.3480829330001143,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d199612c22fe9313f4fb6842b3610149.ply"
+        },
+        {
+            "sample_index": 4,
+            "shape_id": 3,
+            "sample_time": 2.6163663980005367,
+            "inference_time": 0.05816530199808767,
+            "mesh_generation_time": 2.5552308419973997,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1a887a47991d1b3bc0909d98a1ff2b4.ply"
+        },
+        {
+            "sample_index": 5,
+            "shape_id": 4,
+            "sample_time": 3.8619082840014016,
+            "inference_time": 0.059218586997303646,
+            "mesh_generation_time": 3.797874175998004,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1a8e79eebf4a0b1579c3d4943e463ef.ply"
+        },
+        {
+            "sample_index": 6,
+            "shape_id": 5,
+            "sample_time": 3.5394500359980157,
+            "inference_time": 0.05819342299946584,
+            "mesh_generation_time": 3.4766913860003115,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1b1c13fdec4d69ccfd264a25791a5e1.ply"
+        },
+        {
+            "sample_index": 7,
+            "shape_id": 6,
+            "sample_time": 2.65959522400226,
+            "inference_time": 0.05859130799944978,
+            "mesh_generation_time": 2.5980310420018213,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1b28579fde95f19e1873a3963e0d14.ply"
+        },
+        {
+            "sample_index": 8,
+            "shape_id": 7,
+            "sample_time": 2.5228220440003497,
+            "inference_time": 0.0585906279993651,
+            "mesh_generation_time": 2.461233051999443,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1b407350e61150942d79310bc7e47b3.ply"
+        },
+        {
+            "sample_index": 9,
+            "shape_id": 8,
+            "sample_time": 2.3851820249983575,
+            "inference_time": 0.05794159900324303,
+            "mesh_generation_time": 2.3245558159978827,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1cdd239dcbfd018bbf3143b1cb6076a.ply"
+        },
+        {
+            "sample_index": 10,
+            "shape_id": 9,
+            "sample_time": 2.6549295020013233,
+            "inference_time": 0.05797006900320412,
+            "mesh_generation_time": 2.593976759002544,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1d308692cb4b6059a6e43b878d5b335.ply"
+        },
+        {
+            "sample_index": 11,
+            "shape_id": 10,
+            "sample_time": 1.9636402260002797,
+            "inference_time": 0.05853992700212984,
+            "mesh_generation_time": 1.9028974249995372,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1df81e184c71e0f26360e1e29a956c7.ply"
+        },
+        {
+            "sample_index": 12,
+            "shape_id": 11,
+            "sample_time": 2.5975287610017403,
+            "inference_time": 0.058799351998459315,
+            "mesh_generation_time": 2.535597604000941,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1e3bba19cb9447dcf6c095014f481a4.ply"
+        },
+        {
+            "sample_index": 13,
+            "shape_id": 12,
+            "sample_time": 5.161499634999927,
+            "inference_time": 0.059161216999200406,
+            "mesh_generation_time": 5.095967064000433,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1e78f6226a9ac76fb2fba771d8219ff.ply"
+        },
+        {
+            "sample_index": 14,
+            "shape_id": 13,
+            "sample_time": 2.5913277199979348,
+            "inference_time": 0.058370876002300065,
+            "mesh_generation_time": 2.5294742030018824,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d1e81c9479eb1b7da9263338bcc7d067.ply"
+        },
+        {
+            "sample_index": 15,
+            "shape_id": 14,
+            "sample_time": 2.61195494599815,
+            "inference_time": 0.05809186300029978,
+            "mesh_generation_time": 2.550845648998802,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d20e3ed9b3430672bbf3143b1cb6076a.ply"
+        },
+        {
+            "sample_index": 16,
+            "shape_id": 15,
+            "sample_time": 2.6451572789992497,
+            "inference_time": 0.057906498997908784,
+            "mesh_generation_time": 2.5841410440007166,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d21c556af88582754c3a35cee92bb95b.ply"
+        },
+        {
+            "sample_index": 17,
+            "shape_id": 16,
+            "sample_time": 1.8729070510016754,
+            "inference_time": 0.059040015999926254,
+            "mesh_generation_time": 1.8117877140030032,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d220ffb04a5ff31abd46d022fd7d80aa.ply"
+        },
+        {
+            "sample_index": 18,
+            "shape_id": 17,
+            "sample_time": 2.4208694720000494,
+            "inference_time": 0.05865048000123352,
+            "mesh_generation_time": 2.3595274520012026,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d221f607d5b5c553faac198e88c3dbb7.ply"
+        },
+        {
+            "sample_index": 19,
+            "shape_id": 18,
+            "sample_time": 2.1389890829996148,
+            "inference_time": 0.05906978699931642,
+            "mesh_generation_time": 2.077371598999889,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d22521d217d89f8d5b1bb801ea1e2db7.ply"
+        },
+        {
+            "sample_index": 20,
+            "shape_id": 19,
+            "sample_time": 3.099148535002314,
+            "inference_time": 0.059449101998325204,
+            "mesh_generation_time": 3.035686851999344,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d23eecb0437107756c63b8b48495261a.ply"
+        },
+        {
+            "sample_index": 21,
+            "shape_id": 20,
+            "sample_time": 3.1136759000000893,
+            "inference_time": 0.05907114699948579,
+            "mesh_generation_time": 3.050909617999423,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2412f19d33572dc4c3a35cee92bb95b.ply"
+        },
+        {
+            "sample_index": 22,
+            "shape_id": 21,
+            "sample_time": 2.3562071670021396,
+            "inference_time": 0.058985285002563614,
+            "mesh_generation_time": 2.2945988819992635,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d24e6c81b5261fe5ca2bd098b9203af.ply"
+        },
+        {
+            "sample_index": 23,
+            "shape_id": 22,
+            "sample_time": 2.958420095001202,
+            "inference_time": 0.05869373099994846,
+            "mesh_generation_time": 2.89570722499775,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d24f2a1da14a00ce16b34c3751bc447d.ply"
+        },
+        {
+            "sample_index": 24,
+            "shape_id": 23,
+            "sample_time": 2.5835284810018493,
+            "inference_time": 0.05910899800073821,
+            "mesh_generation_time": 2.521481550000317,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d25572a7c7bd40a72d716a8ba99beff8.ply"
+        },
+        {
+            "sample_index": 25,
+            "shape_id": 24,
+            "sample_time": 3.5122632079983305,
+            "inference_time": 0.058748351999383885,
+            "mesh_generation_time": 3.4489373969990993,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d276954441de1e878a3d2bbe7d58317e.ply"
+        },
+        {
+            "sample_index": 26,
+            "shape_id": 25,
+            "sample_time": 2.5738362219999544,
+            "inference_time": 0.058353006999823265,
+            "mesh_generation_time": 2.5121437550005794,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2815b419e61dbb0b87697d3904b168b.ply"
+        },
+        {
+            "sample_index": 27,
+            "shape_id": 26,
+            "sample_time": 2.4972273530001985,
+            "inference_time": 0.05806723299974692,
+            "mesh_generation_time": 2.436269647001609,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d281db2c631c0170991ade27bbcf967d.ply"
+        },
+        {
+            "sample_index": 28,
+            "shape_id": 27,
+            "sample_time": 2.5458397260008496,
+            "inference_time": 0.05794221100222785,
+            "mesh_generation_time": 2.484873899997183,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2842bc324b3dac5bc0909d98a1ff2b4.ply"
+        },
+        {
+            "sample_index": 29,
+            "shape_id": 28,
+            "sample_time": 2.881742307999957,
+            "inference_time": 0.05809805399985635,
+            "mesh_generation_time": 2.8198424680012977,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d28a3cd771b2bf1e71d03b466c72ce41.ply"
+        },
+        {
+            "sample_index": 30,
+            "shape_id": 29,
+            "sample_time": 2.755901657001232,
+            "inference_time": 0.058643120999477105,
+            "mesh_generation_time": 2.693560900999728,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2bf5f39131584c0a8cba409c4409ba9.ply"
+        },
+        {
+            "sample_index": 31,
+            "shape_id": 30,
+            "sample_time": 2.9137707840018265,
+            "inference_time": 0.0581329939996067,
+            "mesh_generation_time": 2.851959834999434,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2c7b95823938833339bd6b570381585.ply"
+        },
+        {
+            "sample_index": 32,
+            "shape_id": 31,
+            "sample_time": 4.102298846999474,
+            "inference_time": 0.058011172000988154,
+            "mesh_generation_time": 4.0389648160016804,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2daef39d1cb8d027089ddd41f4af842.ply"
+        },
+        {
+            "sample_index": 33,
+            "shape_id": 32,
+            "sample_time": 2.4194478270001127,
+            "inference_time": 0.06578996800089953,
+            "mesh_generation_time": 2.35091807900244,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2e2e23f5be557e2d1ab3b031c100cb1.ply"
+        },
+        {
+            "sample_index": 34,
+            "shape_id": 33,
+            "sample_time": 2.519598536000558,
+            "inference_time": 0.05917260000205715,
+            "mesh_generation_time": 2.4573917009984143,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2e99eeecebf0c77bd46d022fd7d80aa.ply"
+        },
+        {
+            "sample_index": 35,
+            "shape_id": 34,
+            "sample_time": 2.3453106859997206,
+            "inference_time": 0.05802789300287259,
+            "mesh_generation_time": 2.284333889001573,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2f8a99bbdc387c8c5552bebbfa48bd7.ply"
+        },
+        {
+            "sample_index": 36,
+            "shape_id": 35,
+            "sample_time": 2.3791739189982763,
+            "inference_time": 0.058019542000693036,
+            "mesh_generation_time": 2.3184630059986375,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d2faf50d6d88dd0690baeef8ba5b93e5.ply"
+        },
+        {
+            "sample_index": 37,
+            "shape_id": 36,
+            "sample_time": 5.684712109999964,
+            "inference_time": 0.05828538599962485,
+            "mesh_generation_time": 5.618837751000683,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d30689ca6cdf2601f551b6c3f174499e.ply"
+        },
+        {
+            "sample_index": 38,
+            "shape_id": 37,
+            "sample_time": 2.7561003449991404,
+            "inference_time": 0.059423891001642914,
+            "mesh_generation_time": 2.693044990999624,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3198154076f49a86f0778e65d2e88ad.ply"
+        },
+        {
+            "sample_index": 39,
+            "shape_id": 38,
+            "sample_time": 2.1649321719996806,
+            "inference_time": 0.0586907600008999,
+            "mesh_generation_time": 2.1038543870017747,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d31a0f4f945775de5823df672991ed66.ply"
+        },
+        {
+            "sample_index": 40,
+            "shape_id": 39,
+            "sample_time": 2.2501903459997266,
+            "inference_time": 0.05964717399911024,
+            "mesh_generation_time": 2.187911933000578,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d34eba7c2ce4db53adecb6fc00604132.ply"
+        },
+        {
+            "sample_index": 41,
+            "shape_id": 40,
+            "sample_time": 2.2950431409990415,
+            "inference_time": 0.05914439700063667,
+            "mesh_generation_time": 2.233235275001789,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d353b227b279804190b1d6deb98feec6.ply"
+        },
+        {
+            "sample_index": 42,
+            "shape_id": 41,
+            "sample_time": 2.4621329119981965,
+            "inference_time": 0.05902310499732266,
+            "mesh_generation_time": 2.4002928150002845,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3580448933d00fd90b1d6deb98feec6.ply"
+        },
+        {
+            "sample_index": 43,
+            "shape_id": 42,
+            "sample_time": 2.300501237001299,
+            "inference_time": 0.058470585998293245,
+            "mesh_generation_time": 2.2389708240007167,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d37781e47470fa3d664a56105f5816ce.ply"
+        },
+        {
+            "sample_index": 44,
+            "shape_id": 43,
+            "sample_time": 4.383268556000985,
+            "inference_time": 0.05889846299760393,
+            "mesh_generation_time": 4.318761918999371,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3856a35d1fb8536d8e727806889c9b0.ply"
+        },
+        {
+            "sample_index": 45,
+            "shape_id": 44,
+            "sample_time": 1.4459003060001123,
+            "inference_time": 0.059549632998823654,
+            "mesh_generation_time": 1.3847670600007405,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d38922599bc74f6da30fd8ce49679098.ply"
+        },
+        {
+            "sample_index": 46,
+            "shape_id": 45,
+            "sample_time": 2.8994840169980307,
+            "inference_time": 0.05862044899913599,
+            "mesh_generation_time": 2.837710601001163,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d39075b8eb890a898deb28944f3f72ef.ply"
+        },
+        {
+            "sample_index": 47,
+            "shape_id": 46,
+            "sample_time": 2.9125416809984017,
+            "inference_time": 0.059170086999074556,
+            "mesh_generation_time": 2.8498701909993542,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d390f0246fd43cc8bd46d022fd7d80aa.ply"
+        },
+        {
+            "sample_index": 48,
+            "shape_id": 47,
+            "sample_time": 2.291908588998922,
+            "inference_time": 0.05928557900188025,
+            "mesh_generation_time": 2.229946570998436,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3b39374c97d39da7dc01d89d8a05b74.ply"
+        },
+        {
+            "sample_index": 49,
+            "shape_id": 48,
+            "sample_time": 3.6710408670005563,
+            "inference_time": 0.0580791410029633,
+            "mesh_generation_time": 3.608534740000323,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3b9114df1d8a3388e415c6cf89025f0.ply"
+        },
+        {
+            "sample_index": 50,
+            "shape_id": 49,
+            "sample_time": 2.2808141550012806,
+            "inference_time": 0.0593785899982322,
+            "mesh_generation_time": 2.218426368999644,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3d788c1fb35227619ba010ddb4974fe.ply"
+        },
+        {
+            "sample_index": 51,
+            "shape_id": 50,
+            "sample_time": 1.7936968530011654,
+            "inference_time": 0.05959925400020438,
+            "mesh_generation_time": 1.73214433099929,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3dcf83f03c7ad2bbc0909d98a1ff2b4.ply"
+        },
+        {
+            "sample_index": 52,
+            "shape_id": 51,
+            "sample_time": 2.359461210999143,
+            "inference_time": 0.05868777000068803,
+            "mesh_generation_time": 2.2980113810008334,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3ecaf6bb9395131d563154e026c3490.ply"
+        },
+        {
+            "sample_index": 53,
+            "shape_id": 52,
+            "sample_time": 6.398934835000546,
+            "inference_time": 0.05856262799716205,
+            "mesh_generation_time": 6.332200595999893,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3f2dcf27000283799d9d900afe054b8.ply"
+        },
+        {
+            "sample_index": 54,
+            "shape_id": 53,
+            "sample_time": 3.027505518999533,
+            "inference_time": 0.05866468000021996,
+            "mesh_generation_time": 2.965059183003177,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d3f93b6da62fae46a98ae8c73b190485.ply"
+        },
+        {
+            "sample_index": 55,
+            "shape_id": 54,
+            "sample_time": 2.4018804650004313,
+            "inference_time": 0.05788585800110013,
+            "mesh_generation_time": 2.340953612001613,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d405b9e5f942fed5efe5d5ae25ee424e.ply"
+        },
+        {
+            "sample_index": 56,
+            "shape_id": 55,
+            "sample_time": 2.6892072539994842,
+            "inference_time": 0.05819508299828158,
+            "mesh_generation_time": 2.6277305629992043,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d438a4539d8068fd44601c64497858af.ply"
+        },
+        {
+            "sample_index": 57,
+            "shape_id": 56,
+            "sample_time": 2.1843434599977627,
+            "inference_time": 0.058125300998653984,
+            "mesh_generation_time": 2.1236297389987158,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d43b80dd95a2233a5ae839ffe09b9d31.ply"
+        },
+        {
+            "sample_index": 58,
+            "shape_id": 57,
+            "sample_time": 3.5192443529995217,
+            "inference_time": 0.05895981399953598,
+            "mesh_generation_time": 3.456224129000475,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d441a12b217c26bc0d5f9d32d37453c.ply"
+        },
+        {
+            "sample_index": 59,
+            "shape_id": 58,
+            "sample_time": 2.645698590000393,
+            "inference_time": 0.05795692700121435,
+            "mesh_generation_time": 2.5842775710007118,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d45772f938d14d52736e55e9ba083986.ply"
+        },
+        {
+            "sample_index": 60,
+            "shape_id": 59,
+            "sample_time": 3.2564404450022266,
+            "inference_time": 0.057987587999377865,
+            "mesh_generation_time": 3.1943259670006228,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d45809b73a371efd185b376619557c95.ply"
+        },
+        {
+            "sample_index": 61,
+            "shape_id": 60,
+            "sample_time": 2.3489922899971134,
+            "inference_time": 0.05868797799848835,
+            "mesh_generation_time": 2.2877124149999872,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d458335c758930c210b8e0008ef5faf6.ply"
+        },
+        {
+            "sample_index": 62,
+            "shape_id": 61,
+            "sample_time": 2.011226815000555,
+            "inference_time": 0.05798535799840465,
+            "mesh_generation_time": 1.9507652899992536,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d47207e14e61db3f1436d436f198567c.ply"
+        },
+        {
+            "sample_index": 63,
+            "shape_id": 62,
+            "sample_time": 2.573468070000672,
+            "inference_time": 0.05916691500169691,
+            "mesh_generation_time": 2.5108505150019482,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d48064100e793155f56a7ca118af1bd1.ply"
+        },
+        {
+            "sample_index": 64,
+            "shape_id": 63,
+            "sample_time": 2.098454513001343,
+            "inference_time": 0.058760169999004574,
+            "mesh_generation_time": 2.037277568000718,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4849eddcd93569ac119f94203b4868c.ply"
+        },
+        {
+            "sample_index": 65,
+            "shape_id": 64,
+            "sample_time": 1.8999407349983812,
+            "inference_time": 0.058411704001628095,
+            "mesh_generation_time": 1.8393347089986491,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4a8134b2463a8bca8607f540cc62ba.ply"
+        },
+        {
+            "sample_index": 66,
+            "shape_id": 65,
+            "sample_time": 2.187455573999614,
+            "inference_time": 0.05874298699927749,
+            "mesh_generation_time": 2.126266551000299,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4aec2680be68c813a116bc3efac4e3b.ply"
+        },
+        {
+            "sample_index": 67,
+            "shape_id": 66,
+            "sample_time": 2.319192347000353,
+            "inference_time": 0.05827245999898878,
+            "mesh_generation_time": 2.258093196000118,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4cc520929730248642fa8402286a797.ply"
+        },
+        {
+            "sample_index": 68,
+            "shape_id": 67,
+            "sample_time": 2.2678060090001964,
+            "inference_time": 0.058182409000437474,
+            "mesh_generation_time": 2.207022632002918,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4d61a35e8b568fb7f1f82f6fc8747b8.ply"
+        },
+        {
+            "sample_index": 69,
+            "shape_id": 68,
+            "sample_time": 3.027707934001228,
+            "inference_time": 0.05899525999848265,
+            "mesh_generation_time": 2.9652159709985426,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4dac019726e980e203936772104a82d.ply"
+        },
+        {
+            "sample_index": 70,
+            "shape_id": 69,
+            "sample_time": 2.448810420999507,
+            "inference_time": 0.05865076600093744,
+            "mesh_generation_time": 2.3872797820004052,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d4ed7de4aa7799f066cf1b4a8fc3914e.ply"
+        },
+        {
+            "sample_index": 71,
+            "shape_id": 70,
+            "sample_time": 3.028936122002051,
+            "inference_time": 0.05912102200090885,
+            "mesh_generation_time": 2.965775090000534,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5189c00524f662c79f9bc8b647dba0.ply"
+        },
+        {
+            "sample_index": 72,
+            "shape_id": 71,
+            "sample_time": 2.40424705300029,
+            "inference_time": 0.05836012199870311,
+            "mesh_generation_time": 2.343084670003009,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d51bd83c27fc3167ba4ae55719e5e195.ply"
+        },
+        {
+            "sample_index": 73,
+            "shape_id": 72,
+            "sample_time": 3.236305172998982,
+            "inference_time": 0.05845676300305058,
+            "mesh_generation_time": 3.173865681001189,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d532217c7fabf1d44e8b48a4c01e36f8.ply"
+        },
+        {
+            "sample_index": 74,
+            "shape_id": 73,
+            "sample_time": 3.013781158999336,
+            "inference_time": 0.058664935000706464,
+            "mesh_generation_time": 2.9516702410001017,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d532a5abb756ebebcc14f1e6f4f4f49b.ply"
+        },
+        {
+            "sample_index": 75,
+            "shape_id": 74,
+            "sample_time": 2.846643310997024,
+            "inference_time": 0.059335245001420844,
+            "mesh_generation_time": 2.783579179998924,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d54a694d514b1911844ac48bcfce34.ply"
+        },
+        {
+            "sample_index": 76,
+            "shape_id": 75,
+            "sample_time": 2.577203646997077,
+            "inference_time": 0.05813920799846528,
+            "mesh_generation_time": 2.5160843060002662,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d54ca25127a15d2b937ae00fead8910d.ply"
+        },
+        {
+            "sample_index": 77,
+            "shape_id": 76,
+            "sample_time": 1.6882931879990792,
+            "inference_time": 0.05874208000022918,
+            "mesh_generation_time": 1.627343385000131,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d56fba80d39bdff738decdbba236bc1d.ply"
+        },
+        {
+            "sample_index": 78,
+            "shape_id": 77,
+            "sample_time": 1.754976385000191,
+            "inference_time": 0.059568853001110256,
+            "mesh_generation_time": 1.6931322389973502,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d581b2e10f8bc6aecc1d733a19631a1.ply"
+        },
+        {
+            "sample_index": 79,
+            "shape_id": 78,
+            "sample_time": 2.9036060120015463,
+            "inference_time": 0.05844247499771882,
+            "mesh_generation_time": 2.8418714970030123,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d583d6f23c590f3ec672ad25c77a396.ply"
+        },
+        {
+            "sample_index": 80,
+            "shape_id": 79,
+            "sample_time": 3.413925125998503,
+            "inference_time": 0.0579949189996114,
+            "mesh_generation_time": 3.3515689730011218,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d59bb0ad79371634f3d7c71ae132007d.ply"
+        },
+        {
+            "sample_index": 81,
+            "shape_id": 80,
+            "sample_time": 2.366174252998462,
+            "inference_time": 0.05880634099958115,
+            "mesh_generation_time": 2.304752613999881,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d59cd5f2012a1ca1aae46a5cc955c766.ply"
+        },
+        {
+            "sample_index": 82,
+            "shape_id": 81,
+            "sample_time": 3.2101457190001383,
+            "inference_time": 0.0582939929990971,
+            "mesh_generation_time": 3.1480231500027003,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d59d75f52ac9b241ae0d772a1c85134a.ply"
+        },
+        {
+            "sample_index": 83,
+            "shape_id": 82,
+            "sample_time": 2.5797651069988206,
+            "inference_time": 0.058439364998776,
+            "mesh_generation_time": 2.5183494179982517,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5a94c9f09d238c4c3a35cee92bb95b.ply"
+        },
+        {
+            "sample_index": 84,
+            "shape_id": 83,
+            "sample_time": 2.1267173609994643,
+            "inference_time": 0.05861879799704184,
+            "mesh_generation_time": 2.065658016999805,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5ad529ad399086e4e9a6f7cd468e49d.ply"
+        },
+        {
+            "sample_index": 85,
+            "shape_id": 84,
+            "sample_time": 2.5117589049987146,
+            "inference_time": 0.058525828000711044,
+            "mesh_generation_time": 2.450340513998526,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5b08d1355502d325f83a2299c09f64.ply"
+        },
+        {
+            "sample_index": 86,
+            "shape_id": 85,
+            "sample_time": 2.374172517000261,
+            "inference_time": 0.05817464299980202,
+            "mesh_generation_time": 2.313223133001884,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5b78307fd9a0764bc97347c46fe15e1.ply"
+        },
+        {
+            "sample_index": 87,
+            "shape_id": 86,
+            "sample_time": 1.7292054669997015,
+            "inference_time": 0.058221234001393896,
+            "mesh_generation_time": 1.6687896410003304,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5e01850a9d1f3ac5fb48d488d5dfafd.ply"
+        },
+        {
+            "sample_index": 88,
+            "shape_id": 87,
+            "sample_time": 2.0088776480006345,
+            "inference_time": 0.05784389800101053,
+            "mesh_generation_time": 1.9488164959984715,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5f01e2aa54bbf28ca8607f540cc62ba.ply"
+        },
+        {
+            "sample_index": 89,
+            "shape_id": 88,
+            "sample_time": 4.481065432999458,
+            "inference_time": 0.05812109199905535,
+            "mesh_generation_time": 4.417230496001139,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d5f4e2228e3fadd2aa6a832b9db7452f.ply"
+        },
+        {
+            "sample_index": 90,
+            "shape_id": 89,
+            "sample_time": 2.352851567000471,
+            "inference_time": 0.05912595799964038,
+            "mesh_generation_time": 2.290937149002275,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d605a53c0917acada80799ffaf21ea7d.ply"
+        },
+        {
+            "sample_index": 91,
+            "shape_id": 90,
+            "sample_time": 2.2157662419995177,
+            "inference_time": 0.05810304600163363,
+            "mesh_generation_time": 2.155132649000734,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d60ec60e091e9d7ade125dc914c4bb9c.ply"
+        },
+        {
+            "sample_index": 92,
+            "shape_id": 91,
+            "sample_time": 1.718305001999397,
+            "inference_time": 0.05809731599947554,
+            "mesh_generation_time": 1.6582862579998618,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d615a8217b70af06bc0909d98a1ff2b4.ply"
+        },
+        {
+            "sample_index": 93,
+            "shape_id": 92,
+            "sample_time": 2.971077874000912,
+            "inference_time": 0.058915138000884326,
+            "mesh_generation_time": 2.908292789998086,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d617ffca7890b33eeb9d949e4b90f4af.ply"
+        },
+        {
+            "sample_index": 94,
+            "shape_id": 93,
+            "sample_time": 2.3968168909996166,
+            "inference_time": 0.05780231199969421,
+            "mesh_generation_time": 2.336257918999763,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d629589ee52d48ee4d210d9468aedaf2.ply"
+        },
+        {
+            "sample_index": 95,
+            "shape_id": 94,
+            "sample_time": 2.4032487960030267,
+            "inference_time": 0.05855999299819814,
+            "mesh_generation_time": 2.3419237230009458,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d639c8d2f55982558b96ae1a0a8b84ec.ply"
+        },
+        {
+            "sample_index": 96,
+            "shape_id": 95,
+            "sample_time": 3.001747444999637,
+            "inference_time": 0.058063555999979144,
+            "mesh_generation_time": 2.939771143002872,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d63bd140efa537dcf73e5bc170b7e2be.ply"
+        },
+        {
+            "sample_index": 97,
+            "shape_id": 96,
+            "sample_time": 4.660559246000048,
+            "inference_time": 0.059100735001266,
+            "mesh_generation_time": 4.595901380002033,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d63daa9d1fd2ff5d575bf8a4b14be4f4.ply"
+        },
+        {
+            "sample_index": 98,
+            "shape_id": 97,
+            "sample_time": 2.3631491050000477,
+            "inference_time": 0.05864633899909677,
+            "mesh_generation_time": 2.301932548998593,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d64caea6c332861bcc14f1e6f4f4f49b.ply"
+        },
+        {
+            "sample_index": 99,
+            "shape_id": 98,
+            "sample_time": 3.042447286003153,
+            "inference_time": 0.05802884899821947,
+            "mesh_generation_time": 2.980824185000529,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d64f391dee878277bd46d022fd7d80aa.ply"
+        },
+        {
+            "sample_index": 100,
+            "shape_id": 99,
+            "sample_time": 3.172208074000082,
+            "inference_time": 0.058941541999956826,
+            "mesh_generation_time": 3.109479527000076,
+            "saved_mesh_path": "results/ShapeNet_None_FKAConv_InterpAttentionKHeadsNet_None/gen_ShapeNet_test_3000/meshes/02691156/d6749fad86648a9719ba010ddb4974fe.ply"
+        }
+    ],
+    "average_sample_time": 2.7330994928199654,
+    "average_inference_time": 0.06251104140992539,
+    "average_mesh_generation_time": 2.667284468170219
+}
