@@ -1,5 +1,13 @@
 __pycache__
 build
-occuapancy_networks
+occupancy_networks/
 results
 *.so
+Miniconda3-latest-Linux-x86_64.sh
+adaptive_scores_mean.json
+adaptive_scores.json
+data
+main.py
+results.tar
+.vscode
+occupancy_networks

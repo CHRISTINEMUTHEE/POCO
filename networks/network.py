@@ -16,6 +16,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import GATConv
 from torch_geometric.utils import dense_to_sparse, to_dense_adj
 from torch_geometric.data import Data as gData
+from torchsummaryX import summary
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -374,6 +375,9 @@ class Network(torch.nn.Module):
         # self.net = eval(backbone)(in_channels, latent_size, segmentation=True, dropout=0)
         self.net = GATOccupancyPredictor(3, latent_size, num_heads=4, out_channels=latent_size)
         self.projection = eval(decoder["name"])(latent_size, out_channels, decoder["k"])
+        logging.info(f"Model Summary ---- {summary(self.net, (3, 3000))}")
+
+        logging.info(f"Model Summary ---- {summary(self.projection, (16, 3000))}")
         self.lcp_preprocess = True
 
         logging.info(f"Network -- backbone -- {count_parameters(self.net)} parameters")
